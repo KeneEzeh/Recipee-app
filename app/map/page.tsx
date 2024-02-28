@@ -55,8 +55,8 @@ const NearbyRestaurantsPage = () => {
   return (
     <div className='px-5'>
       {/* Display map and nearby restaurants */}
-      <h1>Latitude: {location?.latitude}</h1>
-        <h1>Longitude: {location?.longitude}</h1>
+      <h1 className='text-xl'>Latitude: <span className='text-gray-600'>{location?.latitude}</span></h1>
+        <h1 className='text-xl'>Longitude: <span className='text-gray-600'>{location?.longitude}</span></h1>
           <div className='flex justify-center items-center'>
             <h1 className='text-3xl'>
                 Checkout these restuarants 

@@ -16,7 +16,7 @@ const nextConfig = {
         ]
     },
     images: {
-        domains: ['www.themealdb.com'],
+        domains: ['www.themealdb.com','www.google.com'],
     },
 };
 

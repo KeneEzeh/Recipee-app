@@ -91,7 +91,7 @@ const page = async ({ params }: any) => {
     .filter((key) => key.indexOf("ingredient") === 0)
     .map((ingKey) => (details[ingKey]?.length ? details[ingKey] : undefined))
     .filter(Boolean)
-
+    console.log(details);
     const calorieCount = await getCalorieCount(details.strMeal)
     const calories = calorieCount[0]?.calories;
 
@@ -101,20 +101,20 @@ const page = async ({ params }: any) => {
         <Image
           alt="Recipe"
           width={500}
-          height={500}
+          height={400}
           src={details.strMealThumb}
           className="w-full"
         />
       </div>
       <div className='p-5'>
-      <h1>
+      <h1 className='text-xl'>
           Recipe Name:{" "}
           <span className="font-bold text-2xl">{details.strMeal}</span>
         </h1>
 
         <div className="tags mt-3">
-            <p>Calorie Count: {calories}</p>
-          <p className="mb-3">Ingredients List:</p>
+            <p className='text-xl'>Calorie Count: <span className='text-green-700 font-semibold'>{calories}</span></p>
+          <p className="mb-3">Ingredients List: {ingredients || ""}</p>
           {ingredients.map((tag, i) => (
             <span
               key={i}

@@ -22,16 +22,16 @@ const getRecipes = async (type:any) => {
   return recipes;
 }
 
-const RecipeCard = async () => {
+const RecipeCard = async ({params}: any) => {
   // const res = await fetch('https://api.nutritionix.com/v1_1/search/apple?results=5&fields=item_name,brand_name,nf_calories&appId=5078e2bd&appKey=c3f04a2613152c376aa833085e20e832	—');
   // const recipesData = await res.json()
   // console.log(recipesData)
-  const recipes = await getRecipes('Italian');
+  const recipes = await getRecipes(params.area);
   console.log(recipes.meals);
   return (
     <>
-    <div className='flex flex-wrap gap-5'>
-    {recipes.meals.map(recipe => (
+    <div className='flex flex-wrap gap-5 justify-center items-center'>
+    {recipes.meals.map((recipe: any)=> (
       <div key={recipe.idMeal} className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
         <div
           className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
