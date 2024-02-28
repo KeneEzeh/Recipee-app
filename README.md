@@ -13,4 +13,6 @@ A nextjs application on food recipees
 3. https://www.themealdb.com/api/json/v1/1/list.php?a=list
 
 
+## Deployed on Vercel
 
+https://recipee-app-ten.vercel.app/
