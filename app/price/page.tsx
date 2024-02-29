@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
 
-interface PriceModalProps {
-    usd: string;
-    rate: number;
+// interface PriceModalProps {
+//     usd: string;
+//     rate: number;
     
-}
+// }
 
-const PriceModal = ({ usd, rate}: PriceModalProps) => {
+const PriceModal = ({ usd, rate}: any) => {
   return (
     <div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}

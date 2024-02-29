@@ -113,7 +113,7 @@ const page = async ({ params }: any) => {
     
     const things = Object.keys(details).filter((key) => key.includes("strIngredient"));
     const measure = Object.keys(details).filter((key) => key.includes("strMeasure"))
-    const every = things.map((thing, i) => { return `${thing[i]} - ${measure[i]}` });
+    const every = things.map((thing, i) => { return `${details[thing]} - ${details[measure[i]]}` });
     console.log(every);
 
   return (
