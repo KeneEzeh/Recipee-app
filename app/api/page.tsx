@@ -31,6 +31,8 @@ export default function GoogleMaps() {
 			const loader = new Loader({
 				apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY as string,
 				version: 'quartely',
+				libraries: ["places"]
+
 			});
 			const { Map } = await loader.importLibrary('maps');
 			

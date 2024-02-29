@@ -1,5 +1,6 @@
 'use client';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { FaNairaSign } from "react-icons/fa6";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -25,10 +26,10 @@ export default function Price({ngnToUsdRate}:any) {
     return (
       <div>
         <button
-          className="text-white bg-green-500 hover:bg-red-600 rounded py-1 px-3 mt-5 client"
+          className=" flex text-white bg-green-500 hover:bg-red-600 rounded py-1 px-3 mt-5 client items-center"
           onClick={handleOpenPopup}
         >
-          N{ngnToUsdRate}
+          <FaNairaSign /><span>{ngnToUsdRate}</span>
         </button>
   
         {isPopupOpen && (

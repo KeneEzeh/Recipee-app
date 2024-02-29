@@ -30,6 +30,6 @@ https://recipee-app-ten.vercel.app/
 
 1. Responsiveness was considered
 
-2. The API used doesn't come with a pricing for the recipies
+2. The geolocation for the mapping could be incorrect due to some device activities incase the map opens to a random location than yours.
 
 
