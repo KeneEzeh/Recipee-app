@@ -99,7 +99,7 @@ const page = async ({ params }: any) => {
     .filter((key) => key.indexOf("ingredient") === 0)
     .map((ingKey) => (details[ingKey]?.length ? details[ingKey] : undefined))
     .filter(Boolean)
-    console.log(details);
+    console.log(Object.keys(details));
     const calorieCount = await getCalorieCount(details.strMeal)
     const calories = calorieCount[0]?.calories;
 
@@ -110,7 +110,11 @@ const page = async ({ params }: any) => {
     const naira = Math.floor(Math.random() * 1000);
     const formattedPrice = naira.toString() + '.00';
     const usd = (naira / rate).toFixed(3);
-    console.log(typeof(usd),rate, naira);
+    
+    const things = Object.keys(details).filter((key) => key.includes("strIngredient"));
+    const measure = Object.keys(details).filter((key) => key.includes("strMeasure"))
+    const every = things.map((thing, i) => { return `${thing[i]} - ${measure[i]}` });
+    console.log(every);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
@@ -128,11 +132,19 @@ const page = async ({ params }: any) => {
           Recipe Name:{" "}
           <span className="font-bold text-2xl">{details.strMeal}</span>
         </h1>
-
+        <h2 className='text-xl'>
+          Category:{" "}
+          <span className="font-bold text-xl">{details.strCategory}</span>
+        </h2>
+        <div className='mt-5'>
+          <h1 className='text-xl font-bold'>Instructions:</h1>
+          <p className='mt-1'>{details.strInstructions}</p>
+        
+        </div>
         <div className="tags mt-3">
-            <p className='text-xl'>Calorie Count: <span className='text-green-700 font-semibold'>{calories || "Not available"}</span></p>
+            
             <div className='flex gap-2 mt-5'>
-          <p className="mb-3 font-semibold">Ingredients List: {ingredients || "Not avalaible"}</p>
+          <p className="mb-3 text-xl font-semibold">Ingredients List: {ingredients || "Not avalaible"}</p>
           {ingredients.length > 0 ? ingredients.map((tag, i) => (
             <span
               key={i}
@@ -142,6 +154,7 @@ const page = async ({ params }: any) => {
             </span>
           )) : "No ingredients available"}
             </div>
+            <p className='text-xl font-semibold'>Calorie Count: <span className='text-green-700 font-semibold'>{calories || "Not available"}</span></p>
         </div>
         <div className=''>
           <div className='flex gap-2 items-center'>
