@@ -12,6 +12,10 @@ A nextjs application on food recipees
 
 3. https://www.themealdb.com/api/json/v1/1/list.php?a=list
 
+## To get the currency conversion rate
+
+4. https://api.fastforex.io/fetch-all?api_key=Api-Key
+
 
 ## Deployed on Vercel
 
@@ -26,6 +30,6 @@ https://recipee-app-ten.vercel.app/
 
 1. Responsiveness was considered
 
-2. The API used doesn't come with a pricing for the recipies, making the currency conversion task not viable
+2. The API used doesn't come with a pricing for the recipies
 
 

@@ -105,12 +105,12 @@ const page = async ({ params }: any) => {
 
     const data = await getPrice();
     const amount = data.results.NGN;
-    const price = amount.toString().split('.')[0];
+    const rate = amount.toString().split('.')[0];
     
     const naira = Math.floor(Math.random() * 1000);
     const formattedPrice = naira.toString() + '.00';
-    const usd = (naira / price).toFixed(3);
-    console.log(usd,price, naira);
+    const usd = (naira / rate).toFixed(3);
+    console.log(typeof(usd),rate, naira);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
@@ -150,7 +150,7 @@ const page = async ({ params }: any) => {
           </div>
           <div className='mt-2'>
 
-            <PriceModal/>
+            <PriceModal usd={usd} rate={rate}/>
           </div>
         </div>
         <div className="tags mt-3">

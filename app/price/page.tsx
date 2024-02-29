@@ -1,7 +1,13 @@
 'use client';
 import React from 'react';
 
-const PriceModal: React.FC = () => {
+interface PriceModalProps {
+    usd: string;
+    rate: number;
+    
+}
+
+const PriceModal = ({ usd, rate}: PriceModalProps) => {
   return (
     <div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -10,8 +16,8 @@ const PriceModal: React.FC = () => {
       </button>
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">This is the current rate</h3>
-          <p className="py-4">Press ESC key or click the button below to close</p>
+          <h3 className="font-bold text-lg">The current rate is {rate}</h3>
+          <p className="py-4 "> The dollar equivalent is  <span className='text-xl font-bold'>$ {usd}</span></p>
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
