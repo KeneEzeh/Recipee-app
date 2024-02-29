@@ -60,8 +60,10 @@
 
 // export default RecipeDetail
 
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
+import Converter from "../../converter/page";
+import PriceModal from "../../price/page";
 
 const getRecipeDetails = async (id: string) => {
     const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
@@ -84,6 +86,12 @@ const getCalorieCount = async(id: string) => {
     return response;
 }
 
+const getPrice = async () => {
+    const res = await fetch("https://api.fastforex.io/fetch-all?api_key=86daf051df-ebc58089df-s9m54c")
+    const response = await res.json()
+    return response;
+}
+
 const page = async ({ params }: any) => {
     const recipeDetails = await getRecipeDetails(params.recipeId)
     const details = recipeDetails.meals[0];
@@ -94,6 +102,15 @@ const page = async ({ params }: any) => {
     console.log(details);
     const calorieCount = await getCalorieCount(details.strMeal)
     const calories = calorieCount[0]?.calories;
+
+    const data = await getPrice();
+    const amount = data.results.NGN;
+    const price = amount.toString().split('.')[0];
+    
+    const naira = Math.floor(Math.random() * 1000);
+    const formattedPrice = naira.toString() + '.00';
+    const usd = (naira / price).toFixed(3);
+    console.log(usd,price, naira);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
@@ -114,15 +131,27 @@ const page = async ({ params }: any) => {
 
         <div className="tags mt-3">
             <p className='text-xl'>Calorie Count: <span className='text-green-700 font-semibold'>{calories || "Not available"}</span></p>
-          <p className="mb-3">Ingredients List: {ingredients || "Not avalaible"}</p>
-          {ingredients.map((tag, i) => (
+            <div className='flex gap-2 mt-5'>
+          <p className="mb-3 font-semibold">Ingredients List: {ingredients || "Not avalaible"}</p>
+          {ingredients.length > 0 ? ingredients.map((tag, i) => (
             <span
               key={i}
               className="bg-blue-500 text-white px-2 py-1 inline-block rounded mr-2 mb-2"
             >
               {tag}
             </span>
-          ))}
+          )) : "No ingredients available"}
+            </div>
+        </div>
+        <div className=''>
+          <div className='flex gap-2 items-center'>
+            <p className='mt-6 text-xl'>Price: </p>
+            <Converter ngnToUsdRate={formattedPrice}/>
+          </div>
+          <div className='mt-2'>
+
+            <PriceModal/>
+          </div>
         </div>
         <div className="tags mt-3">
           <span>Video Link: </span>

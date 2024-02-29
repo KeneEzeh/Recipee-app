@@ -16,6 +16,7 @@ const Header = () => {
         </div> */}
       <div className='navbar-end flex gap-5'>
       <Link href="/" className='text-xl transition-all duration-700 hover:scale-110'><button className='btn btn-primary'>Home</button></Link>
+      <Link href="/converter" className='text-xl transition-all duration-700 hover:scale-110'><button className='btn btn-primary'>Price Converter</button></Link>
       <Link href="/home" className='text-xl transition-all duration-700 hover:scale-110'><button className='btn btn-primary'>View Regions</button></Link>
         <Link href="/api" className='text-xl transition-all duration-700 hover:scale-110'><button className='btn btn-primary'>Restuarants near you<FaArrowRight /></button></Link>
       </div>

@@ -21,6 +21,7 @@ https://recipee-app-ten.vercel.app/
 
 
 
+
 ## Notes
 
 1. Responsiveness was considered
