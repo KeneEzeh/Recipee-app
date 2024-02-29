@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <header className='navbar bg-green-400 mb-10 px-5'>
+    <header className='navbar bg-green-400 px-5'>
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <a className="btn btn-ghost text-4xl">Recipee</a>
@@ -15,9 +15,9 @@ const Header = () => {
           </button>
         </div> */}
       <div className='navbar-end flex gap-5'>
-      <Link href="/" className='text-xl'><button className='btn btn-primary'>Home</button></Link>
-      <Link href="/home" className='text-xl'><button className='btn btn-primary'>View Regions</button></Link>
-        <Link href="/api" className='text-xl'><button className='btn btn-primary'>Restuarants near you<FaArrowRight /></button></Link>
+      <Link href="/" className='text-xl transition-all duration-700 hover:scale-110'><button className='btn btn-primary'>Home</button></Link>
+      <Link href="/home" className='text-xl transition-all duration-700 hover:scale-110'><button className='btn btn-primary'>View Regions</button></Link>
+        <Link href="/api" className='text-xl transition-all duration-700 hover:scale-110'><button className='btn btn-primary'>Restuarants near you<FaArrowRight /></button></Link>
       </div>
       </div>
       

@@ -113,8 +113,8 @@ const page = async ({ params }: any) => {
         </h1>
 
         <div className="tags mt-3">
-            <p className='text-xl'>Calorie Count: <span className='text-green-700 font-semibold'>{calories}</span></p>
-          <p className="mb-3">Ingredients List: {ingredients || ""}</p>
+            <p className='text-xl'>Calorie Count: <span className='text-green-700 font-semibold'>{calories || "Not available"}</span></p>
+          <p className="mb-3">Ingredients List: {ingredients || "Not avalaible"}</p>
           {ingredients.map((tag, i) => (
             <span
               key={i}

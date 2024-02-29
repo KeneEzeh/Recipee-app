@@ -16,3 +16,15 @@ A nextjs application on food recipees
 ## Deployed on Vercel
 
 https://recipee-app-ten.vercel.app/
+
+
+
+
+
+## Notes
+
+1. Responsiveness was considered
+
+2. The API used doesn't come with a pricing for the recipies, making the currency conversion task not viable
+
+

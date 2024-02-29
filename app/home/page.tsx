@@ -15,11 +15,11 @@ const Home = async () => {
   return (
     <>
     <div className="bg-[url(https://www.themealdb.com/images/ingredients/Lime.png)] h-full">
-        <h1 className='text-center text-7xl font-bold mb-5'>Welcome!!!</h1>
+        <h1 className='text-center lg:text-7xl font-bold mb-5 sm:text-4xl'>Welcome!!!</h1>
         <h2 className='mb-3 text-2xl'>Click on any region/area of your choice to view the recipies native to them</h2>
         <ul className='flex flex-wrap gap-5'>
             {recipes.meals.map((recipe: any, index: number) => (
-                <Link href={`/recipePage/${recipe.strArea}`} className='bg-gray-400 p-7 rounded-lg text-xl font-semibold' key={index}>{recipe.strArea}</Link>
+                <Link href={`/recipePage/${recipe.strArea}`} className='bg-green-400 p-7 rounded-lg text-xl font-semibold transition-all duration-700 hover:scale-110' key={index}>{recipe.strArea}</Link>
             ))}
         </ul>
     </div>

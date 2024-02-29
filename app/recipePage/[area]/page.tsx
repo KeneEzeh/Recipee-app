@@ -30,9 +30,10 @@ const RecipeCard = async ({params}: any) => {
   console.log(recipes.meals);
   return (
     <>
-    <div className='flex flex-wrap gap-5 justify-center items-center'>
+      <h1 className='lg:text-7xl font-bold text-green-900 text-center sm:text-4xl'>Available {params.area} recipies</h1>
+    <div className='flex flex-wrap gap-5 justify-center items-center mt-10'>
     {recipes.meals.map((recipe: any)=> (
-      <div key={recipe.idMeal} className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+      <div key={recipe.idMeal} className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 transition-all duration-700 hover:scale-110 hover:shadow-md hover:shadow-green-700">
         <div
           className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
           <img

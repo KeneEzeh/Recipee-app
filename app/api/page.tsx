@@ -66,6 +66,6 @@ export default function GoogleMaps() {
 			initializeMap();
 		}
 	}, [location]);
-
+	{!location && <div>Loading...</div>}
 	return <div className="h-[600px]" ref={mapRef} />;
 }
