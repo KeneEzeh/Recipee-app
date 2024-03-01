@@ -69,5 +69,14 @@ export default function GoogleMaps() {
 		}
 	}, [location]);
 	{!location && <div>Loading...</div>}
-	return <div className="h-[600px]" ref={mapRef} />;
+	return (
+		<>
+		{!location && <div className='flex animate-pulse bg-white-400 h-screen'>
+			<h1 className='flex m-auto text-7xl font-bold items-center  '> 
+			<svg className="animate-spin h-12 w-12 mr-3 bg-gray-400 rounded-full text-white-900 text-4xl ..." viewBox="0 0 24 24">
+				<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">.</text></svg> Loading...</h1>
+			</div>}
+		{location && <div className="h-[600px]" ref={mapRef} />}
+		</>
+	);
 }
