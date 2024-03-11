@@ -43,7 +43,7 @@ const page = async ({ params }: any) => {
     
     const data = await getPrice();
     const amount = data.results?.NGN;
-    let rate = 0
+    let rate = 1632
     if(amount){
 
        rate = amount.toString().split('.')[0]
