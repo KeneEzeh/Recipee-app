@@ -11,7 +11,7 @@ const getRecipes = async () => {
 const Home = async () => {
 
     const recipes = await getRecipes();
-    console.log(recipes);
+    // console.log(recipes);
   return (
     <>
     <div className="bg-[url('../public/recipe.jpeg')] bg-cover h-screen">

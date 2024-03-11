@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react'
+import { inherits } from 'util';
 
 // export const recipes = [
 //   {
@@ -27,7 +29,7 @@ const RecipeCard = async ({params}: any) => {
   // const recipesData = await res.json()
   // console.log(recipesData)
   const recipes = await getRecipes(params.area);
-  console.log(recipes.meals);
+  // console.log(recipes.meals);
   return (
     <>
       <h1 className='lg:text-7xl font-bold text-green-900 text-center sm:text-4xl'>Available {params.area} recipies</h1>
@@ -36,7 +38,9 @@ const RecipeCard = async ({params}: any) => {
       <div key={recipe.idMeal} className="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96 transition-all duration-700 hover:scale-110 hover:shadow-md hover:shadow-green-700">
         <div
           className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
-          <img
+          <Image
+            width={356}
+            height={356}
             src={recipe.strMealThumb}
             alt="card-image" />
         </div>

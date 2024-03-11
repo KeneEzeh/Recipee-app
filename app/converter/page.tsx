@@ -8,7 +8,7 @@ export default function Price({ngnToUsdRate}:any) {
     const [isPopupOpen, setPopupOpen] = useState(false);
 
     const handleOpenPopup = () => {
-      setPopupOpen(true);
+      setPopupOpen(false);
     };
   
     const handleClosePopup = () => {

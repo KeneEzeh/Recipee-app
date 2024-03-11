@@ -48,7 +48,6 @@ const page = async ({ params }: any) => {
     const naira = Math.floor(Math.random() * 1000);
     const formattedPrice = naira.toString() + '.00';
     const usd = (naira / rate).toFixed(3);
-    console.log("Naira",naira);
     
     const things = Object.keys(details).filter((key) => key.includes("strIngredient"));
     const measure = Object.keys(details).filter((key) => key.includes("strMeasure"));
