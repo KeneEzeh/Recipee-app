@@ -42,7 +42,7 @@ const page = async ({ params }: any) => {
     const calories = calorieCount[0]?.calories;
     
     const data = await getPrice();
-    const amount = data.results.NGN;
+    const amount = data.results?.NGN;
     const rate = amount.toString().split('.')[0];
     
     const naira = Math.floor(Math.random() * 1000);
