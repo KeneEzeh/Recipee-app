@@ -43,10 +43,14 @@ const page = async ({ params }: any) => {
     
     const data = await getPrice();
     const amount = data.results?.NGN;
-    const rate = amount.toString().split('.')[0] as unknown as any;
+    let rate = 0
+    if(amount){
+
+       rate = amount.toString().split('.')[0]
+    }
     
     const naira = Math.floor(Math.random() * 1000);
-    const formattedPrice = naira.toString() + '.00';
+    // const formattedPrice = naira.toString() + '.00';
     const usd = (naira / rate).toFixed(3);
     
     const things = Object.keys(details).filter((key) => key.includes("strIngredient"));
