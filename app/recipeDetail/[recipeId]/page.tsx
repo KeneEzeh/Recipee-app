@@ -43,7 +43,7 @@ const page = async ({ params }: any) => {
     
     const data = await getPrice();
     const amount = data.results?.NGN;
-    const rate = amount.toString().split('.')[0];
+    const rate = amount.toString().split('.')[0] as unknown as any;
     
     const naira = Math.floor(Math.random() * 1000);
     const formattedPrice = naira.toString() + '.00';
