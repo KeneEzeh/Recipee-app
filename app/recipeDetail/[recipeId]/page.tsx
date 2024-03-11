@@ -38,10 +38,9 @@ const page = async ({ params }: any) => {
     .filter((key) => key.indexOf("ingredient") === 0)
     .map((ingKey) => (details[ingKey]?.length ? details[ingKey] : undefined))
     .filter(Boolean)
-    console.log(Object.keys(details));
     const calorieCount = await getCalorieCount(details.strMeal)
     const calories = calorieCount[0]?.calories;
-
+    
     const data = await getPrice();
     const amount = data.results.NGN;
     const rate = amount.toString().split('.')[0];
@@ -49,11 +48,11 @@ const page = async ({ params }: any) => {
     const naira = Math.floor(Math.random() * 1000);
     const formattedPrice = naira.toString() + '.00';
     const usd = (naira / rate).toFixed(3);
+    console.log("Naira",naira);
     
     const things = Object.keys(details).filter((key) => key.includes("strIngredient"));
     const measure = Object.keys(details).filter((key) => key.includes("strMeasure"));
     const every = things.map((thing, i) => { return Object.assign({}, {["ingredient"]: details[thing], ["measure"]: details[measure[i]]})});
-    console.log(every);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 mt-5">
@@ -103,7 +102,7 @@ const page = async ({ params }: any) => {
         <div className=''>
           <div className='flex gap-2 items-center'>
             <p className='mt-6 text-xl'>Price: </p>
-            <Converter ngnToUsdRate={usd}/>
+            <Converter ngnToUsdRate={naira}/>
           </div>
           <div className='mt-2'>
 
